@@ -1,0 +1,1 @@
+# dinckartalkayasi.github.io
