@@ -1,0 +1,135 @@
+/* Reset & global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: #000;
+  color: #f5f5f7;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #000;
+  color: #f5f5f7;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a,
+nav span,
+nav button {
+  color: #f5f5f7;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.6rem;
+  transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav span:hover,
+nav button:hover {
+  color: #2997ff;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  background-color: #1d1d1f;
+  border: 1px solid #333;
+  top: calc(100% + 0.3rem);
+  left: 0;
+  min-width: 180px;
+  z-index: 100;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+}
+
+.dropdown-content li a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: #f5f5f7;
+  font-size: 0.9rem;
+}
+
+.dropdown-content li a:hover {
+  background-color: #2c2c2e;
+  color: #2997ff;
+}
+
+.dropdown:hover .dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Main content */
+main {
+  padding: 4rem 2rem;
+  max-width: 960px;
+  margin: auto;
+  text-align: center;
+}
+
+main h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+main p {
+  font-size: 1rem;
+  color: #d2d2d7;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #1d1d1f;
+  color: #86868b;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+  margin-top: 4rem;
+}

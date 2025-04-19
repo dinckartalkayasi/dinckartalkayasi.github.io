@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Etsy SEO Analyzer | Dinç Kartalkayası</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    textarea, input { width: 100%; padding: 0.5rem; margin-bottom: 1rem; }
+    button { padding: 0.6rem 1rem; cursor: pointer; }
+    #results { margin-top: 2rem; padding: 1rem; background: #fff; border-radius: 8px; }
+    .good { color: green; }
+    .warn { color: orange; }
+    .bad { color: red; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dinç Kartalkayası</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html" data-i18n="home">Home</a></li>
+        <li class="dropdown" id="workDropdown">
+          <span data-i18n="work">Work Experience</span>
+          <ul class="dropdown-content" id="workMenu">
+            <li><a href="../pages/individual.html" data-i18n="individual">Individual</a></li>
+            <li><a href="../pages/corporate.html" data-i18n="corporate">Corporate</a></li>
+          </ul>
+        </li>
+        <li><a href="../pages/education.html" data-i18n="education">Education</a></li>
+        <li><a href="../pages/sports.html" data-i18n="sports">Sports</a></li>
+        <li class="dropdown" id="toolsDropdown">
+          <span data-i18n="tools">Tools</span>
+          <ul class="dropdown-content" id="toolsMenu">
+            <li><a href="qr-code-generator.html" data-i18n="qr_title">QR Code Generator</a></li>
+            <li><a href="etsy-seo-analyzer.html" data-i18n="seo_title">Etsy SEO Analyzer</a></li>
+            <li><a href="print-on-demand-profit.html" data-i18n="pod_title">Print-on-Demand Profit Calculator</a></li>
+          </ul>
+        </li>
+        <li>
+          <button onclick="switchLanguage('en')">EN</button>
+          <button onclick="switchLanguage('tr')">TR</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="padding:2rem; max-width:800px; margin:auto;">
+    <h2 data-i18n="seo_title">Etsy SEO Analyzer</h2>
+    <p data-i18n="seo_intro">Paste your Etsy product title, tags and description. Get instant SEO feedback.</p>
+
+    <label data-i18n="seo_label_title">Product Title</label>
+    <input type="text" id="title">
+
+    <label data-i18n="seo_label_tags">Tags (comma separated)</label>
+    <input type="text" id="tags">
+
+    <label data-i18n="seo_label_desc">Description</label>
+    <textarea id="description" rows="6"></textarea>
+
+    <button onclick="analyzeSEO()" data-i18n="seo_button">Analyze</button>
+
+    <div id="results"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dinç Kartalkayası</p>
+  </footer>
+
+  <!-- Doğru script sıralaması -->
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+  <script>
+    function analyzeSEO() {
+      const title = document.getElementById("title").value.toLowerCase();
+      const tags = document.getElementById("tags").value.toLowerCase().split(",").map(t => t.trim());
+      const desc = document.getElementById("description").value.toLowerCase();
+
+      const lang = localStorage.getItem("lang") || "en";
+      const messages = {
+        en: {
+          score: "SEO Score",
+          title_good: "✅ Title length is optimal.",
+          title_warn: "⚠️ Use 4-13 words in the title for best results.",
+          tags_good: "✅ Good number of tags.",
+          tags_warn: "⚠️ Use at least 10 tags (max 13).",
+          match_good: "✅ Tags are well integrated in title/description.",
+          match_warn: "⚠️ Ensure your tags are reflected in the description/title.",
+          desc_good: "✅ Description length is sufficient.",
+          desc_warn: "⚠️ Description too short. Minimum 300 characters recommended.",
+          unique_good: "✅ Description seems original.",
+          unique_bad: "❌ Your description contains a lot of repeated or nonsense text."
+        },
+        tr: {
+          score: "SEO Puanı",
+          title_good: "✅ Başlık uzunluğu ideal.",
+          title_warn: "⚠️ Başlıkta 4-13 kelime kullanmanız önerilir.",
+          tags_good: "✅ Etiket sayısı yeterli.",
+          tags_warn: "⚠️ En az 10, en fazla 13 etiket kullanın.",
+          match_good: "✅ Etiketler başlık/açıklamada kullanılmış.",
+          match_warn: "⚠️ Etiketlerinizi başlık ve açıklamada kullanmaya özen gösterin.",
+          desc_good: "✅ Açıklama uzunluğu yeterli.",
+          desc_warn: "⚠️ Açıklama çok kısa. En az 300 karakter yazın.",
+          unique_good: "✅ Açıklama özgün görünüyor.",
+          unique_bad: "❌ Açıklama tekrarlayan veya anlamsız içerik içeriyor."
+        }
+      };
+
+      let score = 0;
+      let results = "";
+      const t = messages[lang];
+
+      const titleWords = title.split(" ").filter(Boolean);
+      if (titleWords.length >= 4 && titleWords.length <= 13) {
+        score += 20;
+        results += `<p class='good'>${t.title_good}</p>`;
+      } else {
+        results += `<p class='warn'>${t.title_warn}</p>`;
+      }
+
+      if (tags.length >= 10) {
+        score += 20;
+        results += `<p class='good'>${t.tags_good}</p>`;
+      } else {
+        results += `<p class='warn'>${t.tags_warn}</p>`;
+      }
+
+      const textPool = (title + " " + desc).split(/\W+/);
+      const tagMatch = tags.filter(tag => textPool.includes(tag)).length;
+      if (tagMatch >= 5) {
+        score += 20;
+        results += `<p class='good'>${t.match_good}</p>`;
+      } else {
+        results += `<p class='warn'>${t.match_warn}</p>`;
+      }
+
+      if (desc.length > 300) {
+        score += 20;
+        results += `<p class='good'>${t.desc_good}</p>`;
+      } else {
+        results += `<p class='warn'>${t.desc_warn}</p>`;
+      }
+
+      const descWords = desc.split(/\s+/);
+      const uniqueWords = new Set(descWords);
+      if (uniqueWords.size / descWords.length > 0.5) {
+        score += 20;
+        results += `<p class='good'>${t.unique_good}</p>`;
+      } else {
+        results += `<p class='bad'>${t.unique_bad}</p>`;
+      }
+
+      document.getElementById("results").innerHTML = `<h3>${t.score}: ${score}/100</h3>` + results;
+    }
+  </script>
+</body>
+</html>

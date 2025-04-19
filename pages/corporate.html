@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Experience | Dinç Kartalkayası</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <h1>Dinç Kartalkayası</h1>
+      <nav>
+        <ul>
+          <li><a href="../index.html" data-i18n="home">Home</a></li>
+
+          <li class="dropdown" id="workDropdown">
+            <span data-i18n="work">Work Experience</span>
+            <ul class="dropdown-content" id="workMenu">
+              <li><a href="individual.html" data-i18n="individual">Individual</a></li>
+              <li><a href="corporate.html" data-i18n="corporate">Corporate</a></li>
+            </ul>
+          </li>
+
+          <li><a href="education.html" data-i18n="education">Education</a></li>
+          <li><a href="sports.html" data-i18n="sports">Sports</a></li>
+
+          <li class="dropdown" id="toolsDropdown">
+            <span data-i18n="tools">Tools</span>
+            <ul class="dropdown-content" id="toolsMenu">
+              <li><a href="../tools/qr-code-generator.html" data-i18n="qr_title">QR Code Generator</a></li>
+              <li><a href="../tools/etsy-seo-analyzer.html" data-i18n="seo_title">Etsy SEO Analyzer</a></li>
+              <li><a href="../tools/print-on-demand-profit.html" data-i18n="pod_title">Print-on-Demand Profit Calculator</a></li>
+            </ul>
+          </li>
+
+          <li class="lang-buttons">
+            <button onclick="switchLanguage('en')">EN</button>
+            <button onclick="switchLanguage('tr')">TR</button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2 data-i18n="supply_title">Supply Chain Planning Specialist</h2>
+      <img src="../assets/Pizza_Lazza_Logo.png" alt="Pizza Lazza Logo" style="width:300px; border-radius:8px;" />
+      <img src="../assets/Saloon_Burger_Logo.png" alt="Saloon Burger Logo" style="width:300px; border-radius:8px;" />
+      <p data-i18n="supply_text"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="radio_title">Radio Control Systems Intern</h2>
+      <img src="../assets/Turkcell_Logo.png" alt="Turkcell Logo" style="width:300px; border-radius:8px;" />
+      <p data-i18n="radio_text"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="strategy_title">Strategic Planning Assistant Specialist</h2>
+      <img src="../assets/Pizza_Lazza_Logo.png" alt="Pizza Lazza Logo" style="width:300px; border-radius:8px;" />
+      <img src="../assets/Saloon_Burger_Logo.png" alt="Saloon Burger Logo" style="width:300px; border-radius:8px;" />
+      <p data-i18n="strategy_text"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dinç Kartalkayası</p>
+  </footer>
+
+  <!-- Scriptler: önce çeviri, sonra uygulama -->
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>

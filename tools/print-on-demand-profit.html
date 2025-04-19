@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Print-on-Demand Profit Calculator | Dinç Kartalkayası</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <h1>Dinç Kartalkayası</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html" data-i18n="home">Home</a></li>
+        <li class="dropdown" id="workDropdown">
+          <span data-i18n="work">Work Experience</span>
+          <ul class="dropdown-content" id="workMenu">
+            <li><a href="../pages/individual.html" data-i18n="individual">Individual</a></li>
+            <li><a href="../pages/corporate.html" data-i18n="corporate">Corporate</a></li>
+          </ul>
+        </li>
+        <li><a href="../pages/education.html" data-i18n="education">Education</a></li>
+        <li><a href="../pages/sports.html" data-i18n="sports">Sports</a></li>
+        <li class="dropdown" id="toolsDropdown">
+          <span data-i18n="tools">Tools</span>
+          <ul class="dropdown-content" id="toolsMenu">
+            <li><a href="qr-code-generator.html" data-i18n="qr_title">QR Code Generator</a></li>
+            <li><a href="etsy-seo-analyzer.html" data-i18n="seo_title">Etsy SEO Analyzer</a></li>
+            <li><a href="print-on-demand-profit.html" data-i18n="pod_title">Print-on-Demand Profit Calculator</a></li>
+          </ul>
+        </li>
+        <li>
+          <button onclick="switchLanguage('en')">EN</button>
+          <button onclick="switchLanguage('tr')">TR</button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main style="max-width: 800px; margin: auto; padding: 2rem;">
+    <h2 data-i18n="pod_title">Print-on-Demand Profit Calculator</h2>
+    <p data-i18n="pod_desc">Enter your product costs, selling price, and platform fees to calculate your net profit.</p>
+
+    <label data-i18n="pod_base_cost">Base Product Cost ($)</label><br/>
+    <input type="number" id="baseCost" /><br/><br/>
+
+    <label data-i18n="pod_shipping_cost">Shipping Cost ($)</label><br/>
+    <input type="number" id="shippingCost" /><br/><br/>
+
+    <label data-i18n="pod_selling_price">Selling Price ($)</label><br/>
+    <input type="number" id="sellingPrice" /><br/><br/>
+
+    <label data-i18n="pod_platform_fee">Platform Fee (%)</label><br/>
+    <input type="number" id="platformFee" value="10" /><br/><br/>
+
+    <button onclick="calculateProfit()" style="padding: 0.5rem 1rem;" data-i18n="pod_calculate">Calculate</button>
+
+    <div id="profitResult" style="margin-top:2rem; font-weight:bold;"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Dinç Kartalkayası</p>
+  </footer>
+
+  <!-- Script sırası: çeviri → menü → hesaplama -->
+  <script src="../translations.js"></script>
+  <script src="../script.js"></script>
+  <script>
+    function calculateProfit() {
+      const base = parseFloat(document.getElementById("baseCost").value) || 0;
+      const shipping = parseFloat(document.getElementById("shippingCost").value) || 0;
+      const price = parseFloat(document.getElementById("sellingPrice").value) || 0;
+      const feePercent = parseFloat(document.getElementById("platformFee").value) || 0;
+
+      const totalCost = base + shipping;
+      const platformFee = price * (feePercent / 100);
+      const netProfit = price - totalCost - platformFee;
+
+      const lang = localStorage.getItem("lang") || "en";
+      const resultText = {
+        en: `Net Profit: $${netProfit.toFixed(2)}`,
+        tr: `Net Kar: $${netProfit.toFixed(2)}`
+      };
+
+      document.getElementById("profitResult").innerText = resultText[lang];
+    }
+  </script>
+</body>
+</html>
