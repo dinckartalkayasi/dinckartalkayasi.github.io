@@ -151,34 +151,34 @@ const translations = {
       strategy_text: "At Pizza Lazza and Saloon Burger – I introduced 'Külah Patates' to the market, led the entire development process, and handled data analysis and reporting tasks.",
   
       master_title: "Master's Degree",
-      master_text: `🎓 Reflection on Selected Master's Courses<br /><br />
+      master_text: ` Reflection on Selected Master's Courses<br /><br />
       I am currently pursuing my master’s degree in Innovation Project Management at the University of Chemistry and Technology Prague (UCT Prague). Throughout the program, I’ve had the opportunity to deepen my understanding of strategic thinking, innovation leadership, and analytical problem-solving. Below are reflections on the core courses I found particularly impactful:<br /><br />
       
-      📊 <strong>Statistical Analysis</strong><br />
+       <strong>Statistical Analysis</strong><br />
       This course helped me enhance my ability to interpret and model data. I learned to apply regression analysis, hypothesis testing, and data visualization in real-world business scenarios. I focused particularly on extracting meaningful insights from data and using those insights in project forecasting and risk assessment.<br /><br />
       
-      📈 <strong>Project Management</strong><br />
+       <strong>Project Management</strong><br />
       I gained in-depth knowledge of the project life cycle, stakeholder engagement, budgeting, and scope control. I concentrated on Agile methodologies and tools like Gantt charts and resource planning to optimize timelines and team efficiency.<br /><br />
       
-      📣 <strong>Marketing Management</strong><br />
+       <strong>Marketing Management</strong><br />
       I explored topics such as consumer behavior, brand positioning, and integrated marketing strategies. Through case studies, I practiced segmentation, targeting, and positioning frameworks to build effective campaigns for innovative products.<br /><br />
       
-      💰 <strong>Financial Management</strong><br />
+       <strong>Financial Management</strong><br />
       This course covered core corporate finance concepts such as capital budgeting, financial statement analysis, and valuation. I focused on understanding financial decision-making from a managerial perspective and its impact on project success.<br /><br />
       
-      🏭 <strong>Lean Production</strong><br />
+       <strong>Lean Production</strong><br />
       Lean principles taught me how to identify waste and deliver more value with fewer resources. I focused on process mapping, Kaizen, 5S, and Kanban—tools that proved especially useful for running innovation projects with limited resources.<br /><br />
       
-      📉 <strong>Microeconomic Theory</strong><br />
+       <strong>Microeconomic Theory</strong><br />
       I studied supply-demand dynamics, pricing strategies, and market structures in depth. The course helped me understand how businesses operate under various competitive conditions and how economic behavior influences pricing and production decisions.<br /><br />
       
-      📊 <strong>Efficiency and Management Control Systems</strong><br />
+       <strong>Efficiency and Management Control Systems</strong><br />
       This course helped me understand how organizations assess internal performance. I focused on KPIs, benchmarking, and Balanced Scorecard tools, and grasped their importance in aligning operations with strategic goals.<br /><br />
       
-      🧠 <strong>Innovation Management & Project</strong><br />
+       <strong>Innovation Management & Project</strong><br />
       I learned the innovation lifecycle—from idea generation to implementation. I focused on innovation strategy, portfolio management, and overcoming organizational resistance. I also led a small-scale innovation project, using creative tools and planning techniques to turn an idea into a practical solution.<br /><br />
       
-      🚀 <strong>Agile Project Management</strong><br />
+       <strong>Agile Project Management</strong><br />
       This was one of the most transformative courses. I gained hands-on experience with Agile frameworks like Scrum and Kanban. I embraced iterative development, flexibility, and customer-centric project thinking—transforming how I collaborate and adapt in projects.`
           }
   };

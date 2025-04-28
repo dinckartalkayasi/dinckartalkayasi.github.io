@@ -53,4 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupHover("workDropdown", "workMenu");
   setupHover("toolsDropdown", "toolsMenu");
+
+  // Section'lara animasyonu tetikle
+  document.querySelectorAll('section, footer, .fade1, .fade2, .fade3, .fade4, .fade5, main h2, main p, main img, main div').forEach((sec) => {
+    sec.style.animationPlayState = "running";
+  });
 });
+
